@@ -90,6 +90,12 @@
       newId += charset.charAt(Math.floor(Math.random() * charset.length));
     }
 
+    /* Solution pour remplacer l'item si deja existant ou générer un id unique*/
+    const todoAlreadyExists = !!todos.find((t) => t.id === parseInt(newId, 10));
+    if(todoAlreadyExists){
+      id = parseInt(newId, 10)
+    }
+
     // If an ID was actually given, find the item and update each property
     if (id) {
       for (var i = 0; i < todos.length; i++) {
