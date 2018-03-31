@@ -1,4 +1,3 @@
-var newId;
 /*jshint eqeqeq:false */
 (function (window) {
 	'use strict';
@@ -88,10 +87,11 @@ var newId;
 
 
 		if (todos.length === 0) {
-			newId = 0;
+			let newId = 0;
 			newIdPlus(newId);
-		} else { // aller chercher la valeur id du dernier objet 
-			const index = todos.length;
+      console.log(shortid.generate()) // Pour générer un identifiant unique
+		} else { // aller chercher la valeur id du dernier objet
+			const index = todos.length - 1;
 			newId = todos[index].id;
 			newIdPlus(newId);
 
@@ -119,7 +119,7 @@ var newId;
 
 			// Assign an ID
 			//updateData.id = parseInt(newId);
-			updateData.id = parseInt(newId);
+			updateData.id = parseInt(newId, 10);
 
 			todos.push(updateData);
 			localStorage[this._dbName] = JSON.stringify(data);
