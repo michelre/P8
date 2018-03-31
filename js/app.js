@@ -17,9 +17,11 @@
 
 	var todo = new Todo('todos-vanillajs');
 
+
 	function setView() {
 		todo.controller.setView(document.location.hash);
 	}
 	$on(window, 'load', setView);
 	$on(window, 'hashchange', setView);
+
 })();
