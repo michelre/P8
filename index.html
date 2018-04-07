@@ -5,6 +5,7 @@
 		<title>To-do list app</title>
 		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
 		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+		<link rel="stylesheet" href="css/date.css">
 	</head>
 	<body>
 		<section class="todoapp">
@@ -33,12 +34,22 @@
 				<button class="clear-completed">Clear completed</button>
 			</footer>
 		</section>
+		<section id="categoriesHtml">
+			<p>Ajouter un libellé à vos TODOS :</p>
+			<button class="btn" onclick="creer()">création</button>
+			<button class="btnSuppression">suppression</button>
+			<select id="categoriesFooter">
+				<option disabled selected>rubrique</option>
+			</select>
+		</section>
 		<footer class="info">
 			<p>Double-click to edit a todo</p>
 			<p>Created by Oscar Godson</p>
 			<p>Refactored by Christoph Burgmer</p>
 		</footer>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script src="node_modules/todomvc-common/base.js"></script>
+		<script src="js/categories.js"></script>
 		<script src="dist/bundle.js"></script>
 		<script src="js/helpers.js"></script>
 		<script src="js/store.js"></script>

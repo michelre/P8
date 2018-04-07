@@ -23,7 +23,9 @@
 
 		var newItem = {
 			title: title.trim(),
-			completed: false
+			completed: false,
+			date:timestamp('DD/MM/YYYY'),
+			rubrique:""//categoryBox()
 		};
 
 		this.storage.save(newItem, callback);

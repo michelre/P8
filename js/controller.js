@@ -179,7 +179,6 @@
 	 * Will remove all completed items from the DOM and storage.
 	 */
 	Controller.prototype.removeCompletedItems = function () {
-		newId=0;
 		var self = this;
 		self.model.read({ completed: true }, function (data) {
 			data.forEach(function (item) {

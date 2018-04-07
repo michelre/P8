@@ -1,0 +1,49 @@
+#dateRubrique{
+    font-size: 12px;
+    text-align:center;
+}
+
+#categoriesHtml{
+    text-align:center;
+}
+
+
+.btn {
+    background: #1f313d;
+    background-image: -webkit-linear-gradient(top, #1f313d, #2980b9);
+    background-image: -moz-linear-gradient(top, #1f313d, #2980b9);
+    background-image: -ms-linear-gradient(top, #1f313d, #2980b9);
+    background-image: -o-linear-gradient(top, #1f313d, #2980b9);
+    background-image: linear-gradient(to bottom, #1f313d, #2980b9);
+    -webkit-border-radius: 22;
+    -moz-border-radius: 22;
+    border-radius: 22px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 3px 9px 3px 9px;
+    text-decoration: none;
+}
+
+.btnSuppression {
+    background: white;
+    -webkit-border-radius: 22;
+    -moz-border-radius: 22;
+    border-radius: 22px;
+    font-family: Arial;
+    color: black;
+    font-size: 11px;
+    padding: 3px 9px 3px 9px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #a2abb0;
+    background-image: -webkit-linear-gradient(top, #a2abb0, #3498db);
+    background-image: -moz-linear-gradient(top, #a2abb0, #3498db);
+    background-image: -ms-linear-gradient(top, #a2abb0, #3498db);
+    background-image: -o-linear-gradient(top, #a2abb0, #3498db);
+    background-image: linear-gradient(to bottom, #a2abb0, #3498db);
+    text-decoration: none;
+}
+
