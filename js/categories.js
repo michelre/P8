@@ -6,19 +6,21 @@
     } else {
         supprimer();
     }
-    
+
 }*/
 
 function creer() {
-    const newCategory=prompt("saisir le nom d'une rubrique");
-    $('<option/>').html('<option value='+newCategory+'>'+newCategory+'</option>').appendTo($('select[id="categories"]'));
-    $('<option/>').html('<option value='+newCategory+'>'+newCategory+'</option>').appendTo($('select[id="categoriesFooter"]'));
-    
+  const newCategory = prompt("saisir le nom d'une rubrique");
+  $('<option value=' + newCategory + '>' + newCategory + '</option>').appendTo($('select[id="categories"]'));
+  $('<option value=' + newCategory + '>' + newCategory + '</option>').appendTo($('select[id="categoriesFooter"]'));
+
 }
 
 
-$('select[id="categoriesFooter"]').on('click',function (){
-   const deadCategory=$(this).val()
-    alert(deadCategory+" va être supprimée");
-   $('option[val=deadCategory]').html(""); // selecteur déconne
+$('select[id="categoriesFooter"]').on('change', function () {
+  const deadCategory = $(this).val();
+  const response = confirm(`Voulez-vous vraiment supprimer ${deadCategory} ?`);
+  if (response) {
+    $(`option[value=${deadCategory}]`).remove();
+  }
 });
