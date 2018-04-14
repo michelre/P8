@@ -16,6 +16,8 @@
 	}
 
 	var todo = new Todo('todos-vanillajs');
+	console.log(todo);
+	
 
 
 	function setView() {

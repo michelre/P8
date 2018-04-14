@@ -14,8 +14,10 @@
 
     function Store(name, callback) {
         callback = callback || function () {};
+       
 
         this._dbName = name;
+
 
         if (!localStorage[name]) {
             var data = {

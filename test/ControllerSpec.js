@@ -6,10 +6,12 @@ describe('controller', function () {
 	var subject, model, view;
 
 	var setUpModel = function (todos) {
-		model.read.and.callFake(function (query, callback) {
+		model.read.and.callFake(function (query, callback) { // permet de cumuler les résultats des appels ?
 			callback = callback || query;
 			callback(todos);
+			console.log(model); // ?? function makeFunc()
 		});
+
 
 		model.getCount.and.callFake(function (callback) {
 
@@ -50,6 +52,8 @@ describe('controller', function () {
 				eventRegistry[event](parameter);
 			}
 		};
+	
+
 	};
 
 	beforeEach(function () {
@@ -58,32 +62,38 @@ describe('controller', function () {
 		subject = new app.Controller(model, view);
 	});
 
-	it('should show entries on start-up', function () {
+	it('should show entries on start-up', function () { // wrote by LD
 		// TODO: write test
+		const todo=[{title:'my todoLD'}];
+		setUpModel([todo]); // setup du modèle
+        subject.setView('/'); // set up de la view
+        expect(view.render).toHaveBeenCalled(); //pour voir le todo, il faut appeler le bon module
 	});
+
 
 	describe('routing', function () {
 
 		it('should show all entries without a route', function () {
 			var todo = {title: 'my todo'};
 			setUpModel([todo]);
-
 			subject.setView('');
-
 			expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
 		});
 
 		it('should show all entries without "all" route', function () {
 			var todo = {title: 'my todo'};
 			setUpModel([todo]);
-
 			subject.setView('#/');
-
 			expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
 		});
 
-		it('should show active entries', function () {
+		it('should show active entries', function () { //wrote by LD
 			// TODO: write test
+				var todo = [{title: 'my todo',completed:false},{title: 'my todo2',completed:false}];
+				//setUpModel([todo]);
+				setUpModel.read({completed: true});
+            subject.setView('');
+            expect(view.render).toHaveBeenCalledWith('showEntries', {completed:true});
 		});
 
 		it('should show completed entries', function () {
