@@ -12,14 +12,10 @@
      */
 
 
-    function Store(name, callback) {
-        callback = callback || function () {};
-       
-
+    function Store(name, callback) { // constructor
+        callback = callback || function () {}; 
         this._dbName = name;
-
-
-        if (!localStorage[name]) {
+        if (!localStorage[name]) { // si localStorage est false, vide ?? on déclare data un array
             var data = {
                 todos: []
             };
@@ -27,7 +23,7 @@
             localStorage[name] = JSON.stringify(data);
         }
 
-        callback.call(this, JSON.parse(localStorage[name]));
+        callback.call(this, JSON.parse(localStorage[name])); 
     }
 
     /**

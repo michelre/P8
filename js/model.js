@@ -28,7 +28,7 @@
 			rubrique:""//categoryBox()
 		};
 
-		this.storage.save(newItem, callback);
+		this.storage.save(newItem, callback); // save ???
 	};
 
 	/**

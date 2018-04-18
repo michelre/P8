@@ -15,12 +15,13 @@
         return htmlEscapes[chr];
     };
 
-    var reUnescapedHtml = /[&<>"'`]/g;
-    var reHasUnescapedHtml = new RegExp(reUnescapedHtml.source);
+    var reUnescapedHtml = /[&<>"'`]/g; 
+    var reHasUnescapedHtml = new RegExp(reUnescapedHtml); // création d'un objet reprenant la chaine globale &<>"'`
+
 
     var escape = function (string) {
         return (string && reHasUnescapedHtml.test(string))
-            ? string.replace(reUnescapedHtml, escapeHtmlChar)
+            ? string.replace(reUnescapedHtml, escapeHtmlChar) // on remplace &<>"'` par la var htmlEspaces
             : string;
     };
 
@@ -64,10 +65,10 @@
 	 * });
      */
     Template.prototype.show = function (data) {
-        var i, l;
+        var l;
         var view = '';
 
-        for (i = 0, l = data.length; i < l; i++) {
+        for (let i = 0, l = data.length; i < l; i++) {
             var template = this.defaultTemplate;
             var completed = '';
             var checked = '';

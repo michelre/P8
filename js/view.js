@@ -31,6 +31,7 @@
 		var elem = qs('[data-id="' + id + '"]');
 
 		if (elem) {
+			
 			this.$todoList.removeChild(elem);
 		}
 	};

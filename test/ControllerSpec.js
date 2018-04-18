@@ -8,7 +8,7 @@ describe('controller', function () {
   var setUpModel = function (todos) {
     model.read.and.callFake(function (query, callback) {
       callback = callback || query;
-      callback(todos);
+		callback(todos);
     });
 
 
@@ -22,7 +22,7 @@ describe('controller', function () {
           return !!todo.completed;
         }).length,
         total: todos.length
-      };
+		};
 
       callback(todoCounts);
     });
@@ -64,10 +64,10 @@ describe('controller', function () {
   it('should show entries on start-up', function () { // wrote by LD
     const todos = [{title: 'my todoLD'}];
     setUpModel(todos); // setup du modèle
-    spyOn(controller, 'showAll').and.callThrough();
-    controller.setView('/'); // set up de la view
-    expect(controller.showAll).toHaveBeenCalled();
-    expect(view.render).toHaveBeenCalledWith('showEntries', todos);
+    spyOn(controller, 'showAll').and.callThrough(); //creéation d'un mock pour objet simulé
+    controller.setView(''); // set up de la view
+    expect(controller.showAll).toHaveBeenCalled(); // check appel de controller.showAll
+    expect(view.render).toHaveBeenCalledWith('showEntries', todos); // view render appelé avec show entries
   });
 
 
@@ -101,10 +101,8 @@ describe('controller', function () {
   });
 
   it('should show the content block when todos exists', function () {
-    setUpModel([{title: 'my todo', completed: true}]);
-
+	 setUpModel([{title: 'my todo', completed: true}]);
     controller.setView('');
-
     expect(view.render).toHaveBeenCalledWith('contentBlockVisibility', {
       visible: true
     });
@@ -112,9 +110,7 @@ describe('controller', function () {
 
   it('should hide the content block when no todos exists', function () {
     setUpModel([]);
-
     controller.setView('');
-
     expect(view.render).toHaveBeenCalledWith('contentBlockVisibility', {
       visible: false
     });
@@ -122,9 +118,7 @@ describe('controller', function () {
 
   it('should check the toggle all button, if all todos are completed', function () {
     setUpModel([{title: 'my todo', completed: true}]);
-
     controller.setView('');
-
     expect(view.render).toHaveBeenCalledWith('toggleAll', {
       checked: true
     });
@@ -133,9 +127,7 @@ describe('controller', function () {
   it('should set the "clear completed" button', function () {
     var todo = {id: 42, title: 'my todo', completed: true};
     setUpModel([todo]);
-
     controller.setView('');
-
     expect(view.render).toHaveBeenCalledWith('clearCompletedButton', {
       completed: 1,
       visible: true
@@ -156,7 +148,11 @@ describe('controller', function () {
 
   describe('toggle all', function () {
     it('should toggle all todos to completed', function () {
-      // TODO: write test
+		// TODO: write test
+		controller.setView('');
+		expect(view.render).toHaveBeenCalledWith('setFilter');
+      //expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
+		
     });
 
     it('should update the view', function () {
