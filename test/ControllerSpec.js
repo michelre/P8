@@ -149,9 +149,12 @@ describe('controller', function () {
   describe('toggle all', function () {
     it('should toggle all todos to completed', function () {
 		// TODO: write test
+		const todos = [{id: 44, title: 'my todo', completed:true}];
+		setUpModel(todos);
+		spyOn(controller, 'toggleComplete').and.callThrough();
 		controller.setView('');
-		expect(view.render).toHaveBeenCalledWith('setFilter');
-      //expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
+		expect(controller.toggleComplete).toHaveBeenCalled();
+		expect(view.render).toHaveBeenCalledWith('elementComplete')
 		
     });
 

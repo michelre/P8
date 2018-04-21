@@ -10,6 +10,8 @@
    */
   function Controller(model, view) {
     var self = this;
+    console.log(model,view);
+
     self.model = model;
     self.view = view;
 

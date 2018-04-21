@@ -16,7 +16,6 @@
 	}
 
 	var todo = new Todo('todos-vanillajs'); // declarer todo dans le scope de la fonction
-
 	
 	function setView() {
 		todo.controller.setView(document.location.hash);
@@ -24,6 +23,5 @@
 	$on(window, 'load', setView);
 	$on(window, 'hashchange', setView);
 
-	console.log(todo);
 
 })();

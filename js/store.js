@@ -12,10 +12,10 @@
      */
 
 
-    function Store(name, callback) { // constructor
+    function Store(name, callback) { // constructor ??
         callback = callback || function () {}; 
         this._dbName = name;
-        if (!localStorage[name]) { // si localStorage est false, vide ?? on déclare data un array
+        if (!localStorage[name]) { // si localStorage est false donc vide ?? on déclare data un array
             var data = {
                 todos: []
             };
@@ -23,7 +23,7 @@
             localStorage[name] = JSON.stringify(data);
         }
 
-        callback.call(this, JSON.parse(localStorage[name])); 
+        callback.call(this, JSON.parse(localStorage[name])); //??
     }
 
     /**
@@ -79,7 +79,6 @@
     Store.prototype.save = function (updateData, callback, id) {
         var data = JSON.parse(localStorage[this._dbName]);
         var todos = data.todos;
-
         callback = callback || function () {};
 
 
