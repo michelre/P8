@@ -97,7 +97,7 @@
   Controller.prototype.addItem = function (title) {
     var self = this;
 
-    if (title.trim() === '') { 
+    if (title.trim() === '') {
       return;
     }
 
@@ -162,7 +162,6 @@
   Controller.prototype.removeItem = function (id) {
     var self = this;
     var items;
-    console.log(data);
     self.model.read(function (data) {
       items = data;
     });
