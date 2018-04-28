@@ -9,8 +9,8 @@
    * @param {object} view The view instance
    */
   function Controller(model, view) {
+
     var self = this;
-    console.log(model,view);
 
     self.model = model;
     self.view = view;
@@ -97,7 +97,7 @@
   Controller.prototype.addItem = function (title) {
     var self = this;
 
-    if (title.trim() === '') {
+    if (title.trim() === '') { 
       return;
     }
 
@@ -162,6 +162,7 @@
   Controller.prototype.removeItem = function (id) {
     var self = this;
     var items;
+    console.log(data);
     self.model.read(function (data) {
       items = data;
     });

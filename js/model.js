@@ -18,7 +18,6 @@
 	 * @param {function} [callback] The callback to fire after the model is created
 	 */
 	Model.prototype.create = function (title, callback) {
-
 		title = title || '';
 		callback = callback || function () {};
 
@@ -29,7 +28,7 @@
 			rubrique:""//categoryBox()
 		};
 
-		this.storage.save(newItem, callback); // save ???
+		this.storage.save(newItem, callback); 
 	};
 
 	/**
@@ -54,12 +53,12 @@
 		if (queryType === 'function') {
 			return this.storage.findAll(callback);
 		} else if (queryType === 'string' || queryType === 'number') {
-			console.log(query);
 			query = parseInt(query, 10);
 			this.storage.find({ id: query }, callback);
 		} else {
 			this.storage.find(query, callback);
 		}
+
 	};
 
 	/**
@@ -118,7 +117,7 @@
 	};
 
 	// Export to window
-	window.app = window.app || {};
+	window.app = window.app || {}; //window.app ou cela crée un objet vide
 	window.app.Model = Model;
 })(window);
 

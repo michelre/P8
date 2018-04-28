@@ -94,7 +94,6 @@
 	};
 
 	View.prototype.render = function (viewCmd, parameter) {
-		console.log(viewCmd)
 		var self = this;
 		var viewCommands = {
 			showEntries: function () {

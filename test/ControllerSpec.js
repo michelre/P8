@@ -62,12 +62,14 @@ describe('controller', function () {
   });
 
   it('should show entries on start-up', function () { // wrote by LD
-    const todos = [{title: 'my todoLD'}];
-    setUpModel(todos); // setup du modèle
-    spyOn(controller, 'showAll').and.callThrough(); //creéation d'un mock pour objet simulé
-    controller.setView(''); // set up de la view
+    const todos = {title: 'my todoLD'};
+    setUpModel([todos]); // setup du modèle
+    spyOn(controller, 'showAll').and.callThrough(); //mock pour objet simulé
+    
+    controller.setView(''); // set up de la view 
+    
     expect(controller.showAll).toHaveBeenCalled(); // check appel de controller.showAll
-    expect(view.render).toHaveBeenCalledWith('showEntries', todos); // view render appelé avec show entries
+    expect(view.render).toHaveBeenCalledWith('showEntries',[todos]); // view render appelé avec show entries
   });
 
 
@@ -76,26 +78,36 @@ describe('controller', function () {
     it('should show all entries without a route', function () {
       var todo = {title: 'my todo'};
       setUpModel([todo]);
+
       controller.setView('');
+
       expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
     });
 
     it('should show all entries without "all" route', function () {
       var todo = {title: 'my todo'};
       setUpModel([todo]);
+
       controller.setView('#/');
+
       expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
     });
 
-    it('should show active entries', function () { //wrote by LD
-      setUpModel([{completed: false}, {completed: true}, {completed: false}]);
+    it('should show active entries', function () { 
+      const todo=[{completed: false}, {completed: true}, {completed: false}];
+      setUpModel([todo])
+
       controller.setView('#/active');
+      
       expect(model.read).toHaveBeenCalledWith({completed: false}, jasmine.any(Function));
+      expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
     });
 
     it('should show completed entries', function () {
       setUpModel([{completed: false}, {completed: true}, {completed: false}]);
+
       controller.setView('#/completed');
+      
       expect(model.read).toHaveBeenCalledWith({completed: true}, jasmine.any(Function));
     });
   });
