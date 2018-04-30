@@ -13,7 +13,7 @@
 
 
     function Store(name, callback) { // constructor ??
-        callback = callback || function () {}; 
+        callback = callback || function () {};
         this._dbName = name;
         if (!localStorage[name]) { // si localStorage est false donc vide ?? on déclare data un array
             var data = {

@@ -28,7 +28,7 @@
 			rubrique:""//categoryBox()
 		};
 
-		this.storage.save(newItem, callback); 
+		this.storage.save(newItem, callback);
 	};
 
 	/**
@@ -47,13 +47,12 @@
 	 * model.read({ foo: 'bar', hello: 'world' });
 	 */
 	Model.prototype.read = function (query, callback) {
-		var queryType = typeof query; // renvoie le type - dans ce cas une fte 
+		var queryType = typeof query; // renvoie le type - dans ce cas une fte
 		callback = callback || function () {};
 
 		if (queryType === 'function') {
-			return this.storage.findAll(callback);
+			return this.storage.findAll(query, callback);
 		} else if (queryType === 'string' || queryType === 'number') {
-			query = parseInt(query, 10);
 			this.storage.find({ id: query }, callback);
 		} else {
 			this.storage.find(query, callback);
