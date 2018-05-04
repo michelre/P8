@@ -9,7 +9,6 @@
    * @param {object} view The view instance
    */
   function Controller(model, view) {
-
     var self = this;
 
     self.model = model;
@@ -54,6 +53,7 @@
    * @param {string} '' | 'active' | 'completed'
    */
   Controller.prototype.setView = function (locationHash) {
+    console.log (locationHash);
     var route = locationHash.split('/')[1];
     var page = route || '';
     this._updateFilterState(page);
@@ -102,7 +102,7 @@
     }
 
     self.model.create(title, function () {
-      self.view.render('clearNewTodo');
+      self.view.render('clearNewTodo'); // vide les caractères
       self._filter(true);
     });
   };

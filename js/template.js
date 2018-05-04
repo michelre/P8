@@ -35,7 +35,7 @@
             =	'<li data-id="{{id}}" class="{{completed}}">'
             +		'<div class="view">'
             +			'<input id="{{id}}" class="toggle" type="checkbox" {{checked}}>'
-            +			'<label for="{{id}}">{{title}}</label>'
+            +			'<label id="{{id}}">{{title}}</label>'
             +			'<button class="destroy"></button>'
             +		'</div>'
             +		'<div id="dateRubrique" >'

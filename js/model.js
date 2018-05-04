@@ -18,6 +18,7 @@
 	 * @param {function} [callback] The callback to fire after the model is created
 	 */
 	Model.prototype.create = function (title, callback) {
+
 		title = title || '';
 		callback = callback || function () {};
 
@@ -25,10 +26,11 @@
 			title: title.trim(),
 			completed: false,
 			date:timestamp('DD/MM/YYYY'),
-			rubrique:""//categoryBox()
+			//rubrique:newCategory
 		};
 
 		this.storage.save(newItem, callback);
+
 	};
 
 	/**
@@ -47,7 +49,7 @@
 	 * model.read({ foo: 'bar', hello: 'world' });
 	 */
 	Model.prototype.read = function (query, callback) {
-		var queryType = typeof query; // renvoie le type - dans ce cas une fte
+		var queryType = typeof query; 
 		callback = callback || function () {};
 
 		if (queryType === 'function') {

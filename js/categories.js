@@ -1,13 +1,4 @@
-/*function categoryBox () {
-    const cate=document.getElementById("cat");
-    const selectedValue=cate.options[cat.selectedIndex].value;
-    if (selectedValue=="creer"){
-        creer();
-    } else {
-        supprimer();
-    }
 
-}*/
 
 function creer() {
   const newCategory = prompt("saisir le nom d'une rubrique");

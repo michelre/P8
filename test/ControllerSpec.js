@@ -6,7 +6,7 @@ describe('controller', function () {
   var controller, model, view;
 
   var setUpModel = function (todos) {
-    model.read.and.callFake(function (query, callback) {
+    model.read.and.callFake(function (query, callback) { // appeler la méthode sur un second objet factice
       callback = callback || query;
       callback(todos);
     });
@@ -173,7 +173,7 @@ describe('controller', function () {
       //Execution du test
       controller.toggleAll(true);
 
-      //Verifier ce qu'on veut tester
+      //Verifier ce que l'on veut tester
       expect(model.read).toHaveBeenCalledWith({completed: false}, jasmine.any(Function));
       expect(controller.toggleComplete).toHaveBeenCalledWith(44, true, true);
 

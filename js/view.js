@@ -120,7 +120,7 @@
       clearNewTodo: function () {
         self.$newTodo.value = '';
       },
-      elementComplete: function () {
+      elementComplete: function () { // coche checkbox
         self._elementComplete(parameter.id, parameter.completed);
       },
       editItem: function () {
@@ -172,6 +172,7 @@
   };
 
   View.prototype.bind = function (event, handler) {
+    console.log(event, handler);
     var self = this;
     if (event === 'newTodo') {
       $on(self.$newTodo, 'change', function () {
@@ -185,6 +186,7 @@
 
     } else if (event === 'toggleAll') {
       $on(self.$toggleAll, 'click', function () {
+        console.log('toggle all');
         handler({completed: this.checked});
       });
 
