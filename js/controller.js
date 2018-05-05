@@ -286,6 +286,20 @@
     this.view.render('setFilter', currentPage);
   };
 
+  /**
+   *
+   *
+   */
+  Controller.prototype.loadCategories = function(){
+    this.model.readCategories();
+    //this.view.render()
+  };
+
+  Controller.prototype.addCategory = function(category){
+    this.model.addCategory(category);
+    //this.view.render();
+  };
+
   // Export to window
   window.app = window.app || {};
   window.app.Controller = Controller;

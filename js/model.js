@@ -49,7 +49,7 @@
 	 * model.read({ foo: 'bar', hello: 'world' });
 	 */
 	Model.prototype.read = function (query, callback) {
-		var queryType = typeof query; 
+		var queryType = typeof query;
 		callback = callback || function () {};
 
 		if (queryType === 'function') {
@@ -115,6 +115,14 @@
 			});
 			callback(todos);
 		});
+	};
+
+	Model.prototype.readCategories = function(){
+		this.storage.getCategories();
+	};
+
+	Model.prototype.createCategory = function(){
+		this.storage.addCategory();
 	};
 
 	// Export to window

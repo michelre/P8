@@ -172,7 +172,8 @@
   };
 
   View.prototype.bind = function (event, handler) {
-    console.log(event, handler);
+    console.log(event);
+    console.trace()
     var self = this;
     if (event === 'newTodo') {
       $on(self.$newTodo, 'change', function () {

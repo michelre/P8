@@ -144,6 +144,15 @@
         callback.call(this, data.todos);
     };
 
+    Store.prototype.addCategory = function(category){
+        const categories = localStorage.getItem('categories') || [];
+        localStorage.setItem('categories', categories.concat(category));
+    };
+
+    Store.prototype.getCategories = function(){
+        return localStorage.getItem('categories');
+    }
+
     // Export to window
     window.app = window.app || {};
     window.app.Store = Store;
